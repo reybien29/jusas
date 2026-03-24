@@ -1,11 +1,339 @@
+@import url('https://fonts.googleapis.com/css2?family=Epilogue:wght@400;500;600;700;800;900&family=Manrope:wght@300;400;500;600;700;800&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 @layer base {
-  html {
-    font-family: 'Instrument Sans', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
-      'Segoe UI Symbol', 'Noto Color Emoji';
-  }
+    :root {
+        /* Brand Primary — Red */
+        --jusa-red: #D81C1C;
+        --jusa-red-light: #E53535;
+        --jusa-red-dim: #B81717;
+        --jusa-red-dark: #991313;
+        --jusa-red-container: #FFE0E0;
+
+        /* CTAs & Prices — Deep Green */
+        --jusa-green: #2E7D32;
+        --jusa-green-light: #388E3C;
+        --jusa-green-dark: #1B5E20;
+        --jusa-green-container: #C8E6C9;
+
+        /* Accent — Yellow */
+        --jusa-orange: #F5C800;
+        --jusa-orange-dark: #C9A400;
+        --jusa-orange-container: #FFF8CC;
+
+        /* Supporting */
+        --jusa-coral: #E05252;
+        --jusa-coral-dark: #B83030;
+        --jusa-coral-container: #FECACA;
+
+        /* Surfaces */
+        --jusa-cream: #FFF8EE;
+        --jusa-surface: #FFF8EE;
+        --jusa-surface-low: #FFF4E6;
+        --jusa-surface-base: #FFF0DC;
+        --jusa-surface-high: #FFE8CC;
+        --jusa-surface-highest: #FFE0BB;
+        --jusa-surface-dim: #F5D8B0;
+
+        /* Text */
+        --jusa-text: #1A1A1A;
+        --jusa-text-muted: #5A5A5A;
+        --jusa-outline: #8A8A8A;
+        --jusa-outline-variant: #C5C5C5;
+    }
+
+    html {
+        scroll-behavior: smooth;
+        font-family: 'Manrope', ui-sans-serif, system-ui, sans-serif;
+        background-color: var(--jusa-cream);
+        color: var(--jusa-text);
+    }
+
+    body {
+        font-family: 'Manrope', ui-sans-serif, system-ui, sans-serif;
+        background-color: var(--jusa-cream);
+        color: var(--jusa-text);
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+    }
+
+    h1, h2, h3, h4, h5, h6 {
+        font-family: 'Epilogue', ui-sans-serif, system-ui, sans-serif;
+        font-weight: 700;
+    }
 }
 
+@layer components {
+    /* Primary CTA — Deep Green */
+    .btn-primary {
+        @apply inline-flex items-center gap-2 bg-jusa-green text-white font-semibold px-7 py-3.5 rounded-full transition-all duration-300 hover:bg-jusa-green-dark hover:shadow-jusa-green hover:-translate-y-0.5 focus:outline-none focus:ring-2 focus:ring-jusa-green focus:ring-offset-2;
+    }
+
+    /* Secondary CTA — Yellow */
+    .btn-secondary {
+        @apply inline-flex items-center gap-2 bg-jusa-orange-container text-jusa-orange-dark font-semibold px-7 py-3.5 rounded-full transition-all duration-300 hover:bg-jusa-orange hover:text-jusa-text hover:shadow-jusa hover:-translate-y-0.5 focus:outline-none focus:ring-2 focus:ring-jusa-orange focus:ring-offset-2;
+    }
+
+    /* Ghost CTA */
+    .btn-ghost {
+        @apply inline-flex items-center gap-2 text-jusa-green font-semibold px-6 py-3 rounded-full transition-all duration-300 hover:bg-jusa-surface-high focus:outline-none focus:ring-2 focus:ring-jusa-green focus:ring-offset-2;
+    }
+
+    /* Outline */
+    .btn-outline {
+        @apply inline-flex items-center gap-2 border-2 border-jusa-green text-jusa-green font-semibold px-7 py-3.5 rounded-full transition-all duration-300 hover:bg-jusa-green hover:text-white hover:-translate-y-0.5 focus:outline-none focus:ring-2 focus:ring-jusa-green focus:ring-offset-2;
+    }
+
+    /* White button (on dark bg) */
+    .btn-white {
+        @apply inline-flex items-center gap-2 bg-white text-jusa-red font-semibold px-7 py-3.5 rounded-full transition-all duration-300 hover:bg-jusa-cream hover:shadow-jusa hover:-translate-y-0.5 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2;
+    }
+
+    /* Section label — brand red */
+    .section-label {
+        @apply inline-block text-xs font-bold tracking-[0.15em] uppercase text-jusa-red mb-3;
+    }
+
+    .section-title {
+        @apply font-display text-3xl sm:text-4xl lg:text-5xl font-bold text-jusa-text leading-tight;
+    }
+
+    .section-subtitle {
+        @apply text-lg text-jusa-text-muted leading-relaxed max-w-2xl;
+    }
+
+    .card-base {
+        @apply bg-white rounded-3xl shadow-card transition-all duration-300 hover:shadow-card-hover hover:-translate-y-1;
+    }
+
+    .card-surface {
+        @apply bg-jusa-surface-low rounded-3xl transition-all duration-300 hover:shadow-card-hover hover:-translate-y-1;
+    }
+
+    .input-jusa {
+        @apply w-full bg-jusa-surface-highest border-0 rounded-2xl px-5 py-3.5 text-jusa-text placeholder-jusa-text-muted font-manrope focus:outline-none focus:ring-2 focus:ring-jusa-green transition-all duration-200;
+    }
+
+    /* Dietary tags */
+    .dietary-tag-vegan {
+        @apply inline-flex items-center gap-1 text-xs font-semibold px-3 py-1 rounded-full bg-jusa-green-container text-jusa-green-light;
+    }
+
+    .dietary-tag-protein {
+        @apply inline-flex items-center gap-1 text-xs font-semibold px-3 py-1 rounded-full bg-jusa-orange-container text-jusa-orange-dark;
+    }
+
+    .dietary-tag-detox {
+        @apply inline-flex items-center gap-1 text-xs font-semibold px-3 py-1 rounded-full bg-blue-100 text-blue-700;
+    }
+
+    .dietary-tag-popular {
+        @apply inline-flex items-center gap-1 text-xs font-semibold px-3 py-1 rounded-full bg-jusa-red-container text-jusa-red-dim;
+    }
+
+    .dietary-tag-dairy-free {
+        @apply inline-flex items-center gap-1 text-xs font-semibold px-3 py-1 rounded-full bg-purple-100 text-purple-700;
+    }
+
+    /* Island Float promo — yellow */
+    .island-float {
+        @apply bg-gradient-to-br from-jusa-orange to-jusa-orange-dark text-jusa-text rounded-5xl p-8 relative overflow-hidden;
+    }
+
+    .glass-nav {
+        @apply bg-jusa-cream/90 backdrop-blur-lg border-b border-jusa-surface-dim/50;
+    }
+
+    .nav-link {
+        @apply text-sm font-semibold text-jusa-text-muted transition-colors duration-200 hover:text-jusa-red relative;
+    }
+
+    .nav-link-active {
+        @apply text-jusa-red;
+    }
+
+    .star-rating {
+        @apply flex gap-0.5 text-jusa-orange;
+    }
+}
+
+@layer utilities {
+    .font-display {
+        font-family: 'Epilogue', ui-sans-serif, system-ui, sans-serif;
+    }
+
+    .font-manrope {
+        font-family: 'Manrope', ui-sans-serif, system-ui, sans-serif;
+    }
+
+    .text-balance {
+        text-wrap: balance;
+    }
+
+    .scrollbar-hide {
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+    }
+
+    .scrollbar-hide::-webkit-scrollbar {
+        display: none;
+    }
+
+    .scroll-snap-x {
+        scroll-snap-type: x mandatory;
+    }
+
+    .scroll-snap-start {
+        scroll-snap-align: start;
+    }
+
+    .hero-brand-title {
+        margin-bottom: 1.5rem;
+        font-family: 'Epilogue', ui-sans-serif, system-ui, sans-serif;
+        font-size: clamp(3.25rem, 7.5vw, 7rem);
+        font-weight: 900;
+        line-height: 0.92;
+        letter-spacing: -0.045em;
+        color: var(--jusa-text);
+        text-shadow:
+            0 2px 0 rgba(255, 255, 255, 0.45),
+            0 14px 40px rgba(216, 28, 28, 0.14),
+            0 4px 12px rgba(0, 0, 0, 0.06);
+        filter: drop-shadow(0 6px 28px rgba(216, 28, 28, 0.1));
+    }
+
+    .hero-brand-line {
+        display: block;
+        opacity: 0;
+        transform: translateY(18px);
+        filter: blur(8px);
+        animation: hero-brand-rise 0.8s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+    }
+
+    .hero-brand-line-one {
+        animation-delay: 0.05s;
+    }
+
+    .hero-brand-line-two {
+        animation: hero-brand-rise 0.85s cubic-bezier(0.22, 1, 0.36, 1) 0.18s forwards;
+    }
+
+    /* "Jusa's" — red glow breathe on the opening word */
+    .hero-jusa-word {
+        display: inline-block;
+        color: #D81C1C;
+        animation: hero-jusa-pulse 3.5s ease-in-out 1.2s infinite;
+    }
+
+    .hero-brand-line-three {
+        animation:
+            hero-brand-rise 0.88s cubic-bezier(0.22, 1, 0.36, 1) 0.3s forwards,
+            hero-brand-glow 5.5s ease-in-out 1.4s infinite;
+    }
+
+    /* Brand hero gradient — Red */
+    .tropical-gradient {
+        background: linear-gradient(135deg, #D81C1C 0%, #991313 60%, #6B0D0D 100%);
+    }
+
+    .tropical-gradient-light {
+        background: linear-gradient(135deg, #E53535 0%, #D81C1C 100%);
+    }
+
+    .bg-pattern-leaf {
+        background-image: radial-gradient(circle at 20% 20%, rgba(255, 248, 204, 0.2) 0%, transparent 50%),
+                          radial-gradient(circle at 80% 80%, rgba(216, 28, 28, 0.06) 0%, transparent 50%);
+    }
+
+    /* Gold/cream gradient for hero headlines — high contrast for visibility */
+    .text-gradient-green {
+        background: linear-gradient(
+            135deg,
+            #e6b800 0%,
+            #f5d547 25%,
+            #fff4b8 55%,
+            #ffffff 100%
+        );
+        background-size: 220% auto;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        filter: drop-shadow(0 2px 8px rgba(245, 200, 0, 0.25));
+    }
+}
+
+@keyframes hero-brand-rise {
+    0% {
+        opacity: 0;
+        transform: translateY(18px);
+        letter-spacing: 0.02em;
+        filter: blur(8px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+        letter-spacing: 0;
+        filter: blur(0);
+    }
+}
+
+
+
+@keyframes hero-brand-glow {
+    0%,
+    100% {
+        text-shadow:
+            0 2px 0 rgba(255, 255, 255, 0.4),
+            0 10px 32px rgba(216, 28, 28, 0.12);
+    }
+
+    50% {
+        text-shadow:
+            0 2px 0 rgba(255, 255, 255, 0.55),
+            0 16px 48px rgba(216, 28, 28, 0.2);
+    }
+}
+
+@keyframes hero-jusa-pulse {
+    0%, 100% {
+        transform: scale(1);
+        text-shadow: 0 0 0 transparent;
+        color: #D81C1C;
+    }
+
+    45% {
+        transform: scale(1.06);
+        text-shadow:
+            0 4px 24px rgba(216, 28, 28, 0.55),
+            0 0 48px rgba(216, 28, 28, 0.25);
+        color: #e53535;
+    }
+
+    55% {
+        transform: scale(1.06);
+        text-shadow:
+            0 4px 24px rgba(216, 28, 28, 0.55),
+            0 0 48px rgba(216, 28, 28, 0.25);
+        color: #e53535;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .hero-brand-line,
+    .hero-brand-line-two,
+    .hero-brand-line-three {
+        animation: none;
+        opacity: 1;
+        transform: none;
+        filter: none;
+        text-shadow: none;
+    }
+
+    .hero-brand-title {
+        filter: none;
+    }
+}
