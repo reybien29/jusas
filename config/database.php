@@ -3,6 +3,34 @@
 use Illuminate\Support\Str;
 use Pdo\Mysql;
 
+/**
+ * Normalize DB_URL / DATABASE_URL for Render and Supabase (trim, strip wrapping quotes, remove line breaks).
+ * Unencoded @ # : in passwords still break parse_url — use php artisan supabase:render-db-url.
+ */
+$normalizePostgresConnectionUrl = static function (?string $primary, ?string $fallback): ?string {
+    $raw = $primary ?: $fallback;
+    if ($raw === null || $raw === false || $raw === '') {
+        return null;
+    }
+
+    $url = trim((string) $raw);
+    if ($url === '') {
+        return null;
+    }
+
+    if (strlen($url) >= 2) {
+        $first = $url[0];
+        $last = $url[strlen($url) - 1];
+        if (($first === '"' && $last === '"') || ($first === "'" && $last === "'")) {
+            $url = substr($url, 1, -1);
+        }
+    }
+
+    $url = str_replace(["\r", "\n"], '', $url);
+
+    return $url === '' ? null : $url;
+};
+
 return [
 
     /*
@@ -86,7 +114,7 @@ return [
 
         'pgsql' => [
             'driver' => 'pgsql',
-            'url' => env('DB_URL'),
+            'url' => $normalizePostgresConnectionUrl(env('DB_URL'), env('DATABASE_URL')),
             'host' => env('DB_HOST', '127.0.0.1'),
             'port' => env('DB_PORT', '5432'),
             'database' => env('DB_DATABASE', 'laravel'),

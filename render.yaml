@@ -1,6 +1,11 @@
-# Database: set DB_URL in Render to your full URI, e.g.
-# postgresql://postgres:YOUR_PASSWORD@db.orlxefxqijqmvplsmivf.supabase.co:5432/postgres?sslmode=require
-# If Render cannot reach the host (IPv6-only direct URL on some networks), use Session pooler from Supabase Connect instead.
+# Database (Supabase + Render):
+# Do NOT use the "Direct connection" host db.<project-ref>.supabase.co from Render — it often resolves to IPv6
+# and fails with: SQLSTATE[08006] ... Network unreachable
+#
+# In Supabase Dashboard → Connect → Session pooler, copy the URI and set it as DB_URL in Render (Environment).
+# Shape (region and project ref come from your project):
+#   postgresql://postgres.<project-ref>:<password>@aws-0-<region>.pooler.supabase.com:5432/postgres?sslmode=require
+# If migrations fail on the transaction pooler (port 6543), prefer Session mode (port 5432) for Laravel.
 services:
   - type: web
     name: jusas
