@@ -16,8 +16,8 @@ class JusaLocationsController extends Controller
                 'phone_tel' => config('jusa.phone_e164'),
                 'email' => 'hello@jusacafe.com',
                 'hours' => [
-                    'Monday – Friday' => '7:00 AM – 9:00 PM',
-                    'Saturday' => '8:00 AM – 10:00 PM',
+                    'Monday – Friday' => '8:00 AM – 11:00 PM',
+                    'Saturday' => '8:00 AM – 11:00 PM',
                     'Sunday' => '9:00 AM – 8:00 PM',
                 ],
                 'maps_url' => config('jusa.maps_url'),

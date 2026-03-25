@@ -1,11 +1,15 @@
 <x-jusa-layout>
-    <x-slot:title>Our Story — JUSA Tropical Smoothie Café</x-slot:title>
-    <x-slot:description>Learn about JUSA's founding story, mission, values, and the team behind every perfect blend.</x-slot:description>
+    <x-slot:title>Our Story — Jusa's Tropical Smoothie Café</x-slot:title>
+    <x-slot:description>Learn about Jusa's founding story, mission, values, and the team behind every perfect blend.</x-slot:description>
 
     {{-- ==================== HERO / BRAND HISTORY ==================== --}}
     <section class="relative py-24 overflow-hidden tropical-gradient">
-        <div class="absolute inset-0 opacity-15 mix-blend-luminosity">
-            <img src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=1920&q=80" alt="" class="w-full h-full object-cover">
+        <div class="absolute inset-0 opacity-25 mix-blend-luminosity">
+            <img
+                src="{{ asset('images/484814194_528148580305748_5131535886702349070_n.jpg') }}"
+                alt="The Jusa's Cafe team posing with an award at a trade show booth, wearing red uniforms"
+                class="w-full h-full object-cover object-center"
+            >
         </div>
         <div class="absolute inset-0 bg-gradient-to-b from-jusa-red-dark/80 to-jusa-red/60"></div>
 
@@ -128,53 +132,32 @@
     <section class="py-24 bg-jusa-cream">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-14">
-                <span class="section-label">The Humans Behind JUSA</span>
-                <h2 class="section-title">Meet the Team</h2>
+                <span class="section-label">Team Spotlight</span>
+                <h2 class="section-title">The Founders Behind Jusa's</h2>
             </div>
 
-            <div class="grid grid-cols-1 sm:grid-cols-3 gap-8">
+            <div class="max-w-2xl mx-auto">
                 @foreach ($team as $member)
                     <div class="group text-center">
                         <div class="relative inline-block mb-6">
-                            <div class="w-40 h-40 mx-auto rounded-full overflow-hidden ring-4 ring-jusa-green-container/60 group-hover:ring-jusa-green transition-all duration-300">
+                            <div class="mx-auto h-52 w-52 overflow-hidden rounded-full bg-jusa-cream ring-2 ring-jusa-green-container/60 transition-all duration-300 group-hover:ring-jusa-green sm:h-56 sm:w-56">
                                 <img
                                     src="{{ $member['image'] }}"
-                                    alt="{{ $member['name'] }}"
-                                    class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                                    alt="{{ $member['name'] }}, founders of Jusa's Tropical Smoothie Café"
+                                    class="h-full w-full object-contain object-center"
                                 >
                             </div>
                         </div>
-                        <h3 class="font-display font-bold text-xl text-jusa-text mb-1">{{ $member['name'] }}</h3>
+                        <h3 class="font-display font-bold text-xl sm:text-2xl text-jusa-text mb-1">{{ $member['name'] }}</h3>
                         <p class="text-sm font-semibold text-jusa-green mb-4">{{ $member['role'] }}</p>
-                        <p class="text-sm text-jusa-text-muted leading-relaxed max-w-xs mx-auto">{{ $member['bio'] }}</p>
+                        <p class="text-sm text-jusa-text-muted leading-relaxed">{{ $member['bio'] }}</p>
                     </div>
                 @endforeach
             </div>
         </div>
     </section>
 
-    {{-- ==================== CAFÉ GALLERY ==================== --}}
-    <section class="py-24 bg-jusa-surface-low">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-12">
-                <span class="section-label">Inside JUSA</span>
-                <h2 class="section-title">The Space</h2>
-            </div>
-
-            {{-- Masonry-style grid --}}
-            <div class="grid grid-cols-2 sm:grid-cols-3 gap-4">
-                @foreach ($gallery as $index => $imageUrl)
-                    <div class="group overflow-hidden rounded-2xl {{ $index === 0 ? 'row-span-2 sm:col-span-1' : '' }} {{ $index === 3 ? 'sm:col-span-2' : '' }}">
-                        <img
-                            src="{{ $imageUrl }}"
-                            alt="JUSA café"
-                            class="w-full {{ $index === 0 ? 'h-64 sm:h-[28rem]' : ($index === 3 ? 'h-48' : 'h-48') }} object-cover transition-transform duration-700 group-hover:scale-105"
-                        >
-                    </div>
-                @endforeach
-            </div>
-        </div>
-    </section>
+ 
 
     {{-- ==================== CTA ==================== --}}
     <section class="py-20 tropical-gradient text-center overflow-hidden relative">

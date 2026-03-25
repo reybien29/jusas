@@ -64,11 +64,11 @@
                 <ul class="space-y-2.5">
                     <li class="flex justify-between gap-4 text-sm">
                         <span class="text-white/60">Mon – Fri</span>
-                        <span class="text-white font-medium">7:00 AM – 9:00 PM</span>
+                        <span class="text-white font-medium">8:00 AM – 11:00 PM</span>
                     </li>
                     <li class="flex justify-between gap-4 text-sm">
                         <span class="text-white/60">Saturday</span>
-                        <span class="text-white font-medium">8:00 AM – 10:00 PM</span>
+                        <span class="text-white font-medium">8:00 AM – 11:00 PM</span>
                     </li>
                     <li class="flex justify-between gap-4 text-sm">
                         <span class="text-white/60">Sunday</span>

@@ -43,22 +43,10 @@ class JusaAboutController extends Controller
 
         $team = [
             [
-                'name' => 'Amara Osei',
-                'role' => 'Founder & Head Nutritionist',
-                'bio' => 'Born in Accra and raised on fresh tropical fruit, Amara founded JUSA to bring the healing power of whole foods to every community.',
-                'image' => 'https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?w=400&q=80',
-            ],
-            [
-                'name' => 'Kai Nakamura',
-                'role' => 'Head of Culinary Innovation',
-                'bio' => 'Former fine-dining chef turned wellness advocate. Kai engineers every flavor profile to be as beautiful as it is nourishing.',
-                'image' => 'https://images.unsplash.com/photo-1556157382-97eda2d62296?w=400&q=80',
-            ],
-            [
-                'name' => 'Priya Menon',
-                'role' => 'Community & Partnerships',
-                'bio' => 'Priya builds the bridges between JUSA and the farmers, athletes, and communities that make our mission possible.',
-                'image' => 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=400&q=80',
+                'name' => 'Charito Higanto Opeña Gray & Jerry Gray',
+                'role' => 'Founders',
+                'bio' => 'Charito and Jerry built Jusa\'s — and for years they\'ve opened doors for students in the community, mentoring and supporting them alongside growing the café.',
+                'image' => asset('images/team-charito-jerry-gray.png'),
             ],
         ];
 

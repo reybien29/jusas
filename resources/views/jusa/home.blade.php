@@ -22,7 +22,7 @@
                     </h1>
 
                     <p class="mb-10 max-w-xl font-manrope text-base leading-relaxed text-jusa-text sm:text-lg">
-                        Step into Naval's freshest flavor stop for bold fruit blends, vibrant comfort food, and feel-good favorites that make you want to visit now, not later. We have flavors to serve for all your moods!
+                        Step into Naval's freshest flavor stop for bold fruit blends, vibrant comfort food, and feel-good favorites that make you want to visit now, not later. 
                     </p>
 
                     <div class="flex flex-wrap items-center gap-5 sm:gap-8">

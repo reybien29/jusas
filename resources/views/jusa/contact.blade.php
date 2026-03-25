@@ -189,7 +189,7 @@
                             Typical Hours
                         </h3>
                         <div class="space-y-2">
-                            @foreach (['Mon – Fri' => '7:00 AM – 9:00 PM', 'Saturday' => '8:00 AM – 10:00 PM', 'Sunday' => '9:00 AM – 8:00 PM'] as $day => $time)
+                            @foreach (['Mon – Fri' => '8:00 AM – 11:00 PM', 'Saturday' => '8:00 AM – 11:00 PM', 'Sunday' => '9:00 AM – 8:00 PM'] as $day => $time)
                                 <div class="flex justify-between items-center text-sm">
                                     <span class="text-jusa-text-muted">{{ $day }}</span>
                                     <span class="font-medium text-jusa-text">{{ $time }}</span>

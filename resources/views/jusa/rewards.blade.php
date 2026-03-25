@@ -1,6 +1,6 @@
 <x-jusa-layout>
     <x-slot:title>Oasis Rewards — JUSA Tropical Smoothie Café</x-slot:title>
-    <x-slot:description>Earn points with every sip. Unlock exclusive perks, free drinks, and island-level rewards with JUSA's Oasis Rewards program.</x-slot:description>
+    <x-slot:description>Loyalty Card: every 6 purchases get 50% off; 12 stamps earns a free reward. Plus points, tiers, and promos at Jusa's.</x-slot:description>
 
     {{-- ==================== HERO ==================== --}}
     <section class="relative py-24 overflow-hidden bg-jusa-red-dark">
@@ -20,7 +20,7 @@
                         <span class="text-jusa-orange">Rewards</span>
                     </h1>
                     <p class="text-lg text-white/80 leading-relaxed mb-8 max-w-md">
-                        Every dollar you spend earns you 1 point. Climb the tiers, unlock perks, and get rewarded just for living your best tropical life.
+                        Use your <span class="font-semibold text-white">Loyalty Card</span> in store: every <span class="font-semibold text-jusa-orange">6</span> purchases, get <span class="font-semibold text-jusa-orange">50% off</span>; collect <span class="font-semibold text-jusa-orange">12</span> stamps and get <span class="font-semibold text-jusa-orange">one free</span>. You also earn points on every peso for tiers and perks.
                     </p>
                     <div class="flex flex-wrap gap-4">
                         <a href="{{ route('locations') }}" class="btn-white">Visit In Store</a>
@@ -48,6 +48,35 @@
                             <span class="font-bold text-jusa-orange">153 pts</span>
                         </div>
                     </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    {{-- ==================== LOYALTY CARD REWARD ==================== --}}
+    <section class="border-b border-jusa-surface-dim/60 bg-white py-16">
+        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <div class="mx-auto max-w-3xl text-center">
+                <span class="section-label">Loyalty Card</span>
+                <h2 class="section-title mt-2">Stamp &amp; save</h2>
+                <p class="section-subtitle mx-auto mt-4">
+                    Ask for a Loyalty Card on your next visit. Stamps apply to qualifying purchases — see in café for details.
+                </p>
+            </div>
+            <div class="mx-auto mt-12 grid max-w-4xl grid-cols-1 gap-6 sm:grid-cols-2">
+                <div class="rounded-3xl border-2 border-jusa-green/25 bg-jusa-green-container/20 p-8 text-center shadow-card">
+                    <div class="font-display text-5xl font-black text-jusa-green">6</div>
+                    <h3 class="font-display mt-3 text-xl font-bold text-jusa-text">Every 6 you buy</h3>
+                    <p class="mt-2 text-sm leading-relaxed text-jusa-text-muted">
+                        <span class="font-semibold text-jusa-text">50% off</span> your next qualifying purchase when you complete six stamps on your Loyalty Card.
+                    </p>
+                </div>
+                <div class="rounded-3xl border-2 border-jusa-orange/30 bg-jusa-orange-container/25 p-8 text-center shadow-card">
+                    <div class="font-display text-5xl font-black text-jusa-orange">12</div>
+                    <h3 class="font-display mt-3 text-xl font-bold text-jusa-text">Collect 12 stamps</h3>
+                    <p class="mt-2 text-sm leading-relaxed text-jusa-text-muted">
+                        Fill your Loyalty Card and <span class="font-semibold text-jusa-text">get one free</span> — redeem for a free qualifying item on us.
+                    </p>
                 </div>
             </div>
         </div>
@@ -89,9 +118,11 @@
     <section class="py-20 bg-jusa-cream">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-14">
-                <span class="section-label">Level Up</span>
+                <span class="section-label">Loyalty Card</span>
                 <h2 class="section-title">Rewards Tiers</h2>
-                <p class="section-subtitle mt-5 mx-auto">The more you sip, the more you unlock.</p>
+                <p class="section-subtitle mt-5 mx-auto">
+                    Stamp milestones on your Jusa&apos;s Loyalty Card — from your first visit to 50% off at 6 and a free reward at 12.
+                </p>
             </div>
 
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
@@ -109,12 +140,20 @@
                         <div class="text-3xl mb-3">{{ $tier['icon'] }}</div>
                         <div class="flex items-center justify-between mb-1">
                             <h3 class="font-display font-bold text-xl text-jusa-text">{{ $tier['name'] }}</h3>
-                            <span class="{{ $tc['badge_bg'] }} {{ $tc['badge_text'] }} text-xs font-bold px-2.5 py-1 rounded-full">
-                                {{ $tier['points_required'] === 0 ? 'Free' : $tier['points_required'] . ' pts' }}
+                            <span class="{{ $tc['badge_bg'] }} {{ $tc['badge_text'] }} max-w-[min(100%,9rem)] text-right text-xs font-bold leading-tight px-2.5 py-1 rounded-full">
+                                @isset($tier['badge'])
+                                    {{ $tier['badge'] }}
+                                @else
+                                    {{ ($tier['points_required'] ?? 0) === 0 ? 'Free' : $tier['points_required'].' pts' }}
+                                @endisset
                             </span>
                         </div>
                         <p class="text-xs text-jusa-text-muted mb-5">
-                            {{ $tier['points_required'] === 0 ? 'Starting tier — join for free' : 'Unlock at ' . $tier['points_required'] . ' lifetime points' }}
+                            @isset($tier['subtitle'])
+                                {{ $tier['subtitle'] }}
+                            @else
+                                {{ ($tier['points_required'] ?? 0) === 0 ? 'Starting tier — join for free' : 'Unlock at '.$tier['points_required'].' lifetime points' }}
+                            @endisset
                         </p>
                         <ul class="space-y-2 mt-auto">
                             @foreach ($tier['perks'] as $perk)
@@ -132,88 +171,8 @@
         </div>
     </section>
 
-    {{-- ==================== ACTIVE PROMOS ==================== --}}
-    <section class="py-20 bg-jusa-surface-low">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-12">
-                <span class="section-label">Limited Time</span>
-                <h2 class="section-title">Active Promos</h2>
-            </div>
 
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
-                @foreach ($promos as $promo)
-                    @php
-                        $badgeColors = [
-                            'green' => 'bg-jusa-green text-white',
-                            'orange' => 'bg-jusa-orange text-white',
-                            'coral' => 'bg-jusa-coral text-white',
-                        ];
-                        $badgeClass = $badgeColors[$promo['badge_color']] ?? 'bg-jusa-surface-highest text-jusa-text-muted';
-                    @endphp
-                    <div class="group bg-white rounded-3xl overflow-hidden shadow-card hover:shadow-card-hover hover:-translate-y-1 transition-all duration-300">
-                        <div class="relative h-40 overflow-hidden">
-                            <img src="{{ $promo['image'] }}" alt="{{ $promo['title'] }}" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
-                            <div class="absolute top-3 left-3">
-                                <span class="text-xs font-bold px-3 py-1.5 rounded-full {{ $badgeClass }}">{{ $promo['badge'] }}</span>
-                            </div>
-                        </div>
-                        <div class="p-5">
-                            <h3 class="font-display font-bold text-base text-jusa-text mb-2 leading-tight">{{ $promo['title'] }}</h3>
-                            <p class="text-sm text-jusa-text-muted leading-relaxed mb-4">{{ $promo['description'] }}</p>
-                            @if ($promo['expires'])
-                                <p class="text-xs font-semibold text-jusa-coral">Expires {{ $promo['expires'] }}</p>
-                            @else
-                                <p class="text-xs font-semibold text-jusa-green">Ongoing offer</p>
-                            @endif
-                        </div>
-                    </div>
-                @endforeach
-            </div>
-        </div>
-    </section>
 
-    {{-- ==================== COMBO DEALS ==================== --}}
-    <section class="py-20 bg-jusa-cream">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-12">
-                <span class="section-label">Save More</span>
-                <h2 class="section-title">Combo Deals</h2>
-            </div>
-
-            <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-4xl mx-auto">
-                @foreach ($combos as $combo)
-                    @php
-                        $savings = $combo['original_price'] - $combo['combo_price'];
-                        $savings_pct = round(($savings / $combo['original_price']) * 100);
-                    @endphp
-                    <div class="bg-white rounded-3xl overflow-hidden shadow-card hover:shadow-card-hover hover:-translate-y-1 transition-all duration-300">
-                        <div class="relative h-40 overflow-hidden">
-                            <img src="{{ $combo['image'] }}" alt="{{ $combo['name'] }}" class="w-full h-full object-cover">
-                            <div class="absolute top-3 right-3 bg-jusa-coral text-white text-xs font-bold px-3 py-1.5 rounded-full">
-                                Save {{ $savings_pct }}%
-                            </div>
-                        </div>
-                        <div class="p-5">
-                            <h3 class="font-display font-bold text-lg text-jusa-text mb-3">{{ $combo['name'] }}</h3>
-                            <ul class="space-y-1 mb-4">
-                                @foreach ($combo['items'] as $item)
-                                    <li class="flex items-center gap-2 text-sm text-jusa-text-muted">
-                                        <span class="w-1.5 h-1.5 bg-jusa-red rounded-full flex-shrink-0"></span>
-                                        {{ $item }}
-                                    </li>
-                                @endforeach
-                            </ul>
-                            <div class="flex items-baseline gap-3">
-                                <span class="font-display font-black text-2xl text-jusa-green">${{ number_format($combo['combo_price'], 2) }}</span>
-                                <span class="text-sm text-jusa-text-muted line-through">${{ number_format($combo['original_price'], 2) }}</span>
-                            </div>
-                            <a href="{{ route('menu') }}" class="btn-primary w-full justify-center mt-4 text-sm py-2.5">View on Menu</a>
-                        </div>
-                    </div>
-                @endforeach
-            </div>
-        </div>
-    </section>
 
     {{-- ==================== CTA ==================== --}}
     <section class="py-16 tropical-gradient text-center overflow-hidden relative">

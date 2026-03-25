@@ -10,6 +10,14 @@ class JusaRewardsController extends Controller
     {
         $promos = [
             [
+                'title' => 'Loyalty Card: 6 = 50% off, 12 = free',
+                'description' => 'With your Jusa\'s Loyalty Card: every 6 qualifying purchases get 50% off your next; collect 12 stamps for a free reward.',
+                'badge' => 'In store',
+                'badge_color' => 'green',
+                'expires' => null,
+                'image' => 'https://images.unsplash.com/photo-1553530979-212c4b3b9a1f?w=600&q=80',
+            ],
+            [
                 'title' => 'Buy 2, Get 1 Free',
                 'description' => 'Mix and match any smoothies. Valid all day, every day.',
                 'badge' => 'Ongoing',
@@ -69,31 +77,51 @@ class JusaRewardsController extends Controller
 
         $tiers = [
             [
-                'name' => 'Seedling',
-                'points_required' => 0,
+                'name' => 'Cardholder',
+                'badge' => 'Start here',
+                'subtitle' => 'Pick up a Loyalty Card in store — no fee, just stamps.',
                 'color' => 'surface-high',
-                'perks' => ['Birthday smoothie', 'Early menu access'],
-                'icon' => '🌱',
+                'perks' => [
+                    'One stamp per qualifying purchase',
+                    'Track rewards right on your card',
+                    'Same card works visit after visit',
+                ],
+                'icon' => '🪪',
             ],
             [
-                'name' => 'Sprout',
-                'points_required' => 200,
+                'name' => 'Building',
+                'badge' => '1–5 stamps',
+                'subtitle' => 'Every visit brings you closer to your halfway reward.',
                 'color' => 'green',
-                'perks' => ['5% off in-store purchases', 'Free add-on monthly', 'Seedling perks'],
+                'perks' => [
+                    'Stamps add up on qualifying drinks & food',
+                    'Ask staff which items qualify',
+                    'Keep your card safe — it’s your record',
+                ],
                 'icon' => '🌿',
             ],
             [
-                'name' => 'Bloom',
-                'points_required' => 500,
+                'name' => 'Halfway reward',
+                'badge' => '6 stamps',
+                'subtitle' => 'Hit six stamps on your Loyalty Card to unlock this tier.',
                 'color' => 'orange',
-                'perks' => ['10% off in-store purchases', '2 free add-ons monthly', 'Priority queue in café', 'Sprout perks'],
+                'perks' => [
+                    '50% off your next qualifying purchase',
+                    'Redeem before your next stamp reset (see in café)',
+                    'Then keep stamping toward the big one',
+                ],
                 'icon' => '🌺',
             ],
             [
-                'name' => 'Oasis',
-                'points_required' => 1000,
+                'name' => 'Full card',
+                'badge' => '12 stamps',
+                'subtitle' => 'Complete the card — your loyalty pays off.',
                 'color' => 'coral',
-                'perks' => ['15% off in-store purchases', 'Unlimited free add-ons', 'Exclusive tastings', 'Bloom perks'],
+                'perks' => [
+                    'One free qualifying item — on us',
+                    'Pick up a fresh Loyalty Card and start again',
+                    'Combine with other in-store offers where allowed',
+                ],
                 'icon' => '🏝️',
             ],
         ];
