@@ -4,7 +4,8 @@
 #
 # In Supabase Dashboard → Connect → Session pooler, copy the URI and set it as DB_URL in Render (Environment).
 # Shape (region and project ref come from your project):
-#   postgresql://postgres.<project-ref>:<password>@aws-0-<region>.pooler.supabase.com:5432/postgres?sslmode=require
+#   postgresql://postgres.<project-ref>:<password>@aws-1-<region>.pooler.supabase.com:5432/postgres?sslmode=require
+#   (use the exact host from Connect — aws-0- vs aws-1- is project-specific)
 # If migrations fail on the transaction pooler (port 6543), prefer Session mode (port 5432) for Laravel.
 services:
   - type: web

@@ -5,7 +5,8 @@ use Pdo\Mysql;
 
 /**
  * Normalize DB_URL / DATABASE_URL for Render and Supabase (trim, strip wrapping quotes, remove line breaks).
- * Unencoded @ # : in passwords still break parse_url — use php artisan supabase:render-db-url.
+ * If the password contains & ? + etc. without encoding, parse_url fails — we re-encode the password when
+ * the URI matches postgres(ql)://user:pass@rest (password must not contain @).
  */
 $normalizePostgresConnectionUrl = static function (?string $primary, ?string $fallback): ?string {
     $raw = $primary ?: $fallback;
@@ -28,7 +29,23 @@ $normalizePostgresConnectionUrl = static function (?string $primary, ?string $fa
 
     $url = str_replace(["\r", "\n"], '', $url);
 
-    return $url === '' ? null : $url;
+    if ($url === '') {
+        return null;
+    }
+
+    if (parse_url($url) !== false) {
+        return $url;
+    }
+
+    if (preg_match('#^(postgres(?:ql)?)://([^:]+):([^@]+)@(.+)$#i', $url, $m) === 1) {
+        $scheme = strtolower($m[1]) === 'postgres' ? 'postgresql' : $m[1];
+        $user = $m[2];
+        $pass = $m[3];
+        $rest = $m[4];
+        $url = sprintf('%s://%s:%s@%s', $scheme, $user, rawurlencode($pass), $rest);
+    }
+
+    return $url;
 };
 
 return [

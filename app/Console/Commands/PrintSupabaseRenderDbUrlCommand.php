@@ -14,7 +14,7 @@ class PrintSupabaseRenderDbUrlCommand extends Command
      */
     protected $signature = 'supabase:render-db-url
                             {--ref=orlxefxqijqmvplsmivf : Supabase project ref}
-                            {--pooler-host=aws-0-us-east-1.pooler.supabase.com : Host from Supabase Connect → Session pooler}
+                            {--pooler-host=aws-1-us-east-1.pooler.supabase.com : Must match Supabase Connect → Session pooler (aws-0 vs aws-1 differs by project)}
                             {--password= : Optional; prefer the interactive prompt}';
 
     /**
