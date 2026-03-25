@@ -42,7 +42,14 @@ WORKDIR /app
 
 COPY --from=builder /app /app
 
-RUN chown -R www-data:www-data storage bootstrap/cache \
+# .dockerignore omits storage/framework/*; realpath() in config/view.php must resolve or view:cache fails.
+RUN mkdir -p \
+    storage/framework/views \
+    storage/framework/cache/data \
+    storage/framework/sessions \
+    storage/framework/testing \
+    storage/logs \
+    && chown -R www-data:www-data storage bootstrap/cache \
     && chmod -R 775 storage bootstrap/cache
 
 COPY docker/nginx.conf /etc/nginx/http.d/default.conf
