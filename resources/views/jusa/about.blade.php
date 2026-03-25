@@ -14,7 +14,7 @@
         <div class="absolute inset-0 bg-gradient-to-b from-jusa-red-dark/80 to-jusa-red/60"></div>
 
         <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="max-w-2xl">
+            <div class="max-w-2xl" data-scroll-reveal="fade-up">
                 <span class="inline-block text-xs font-bold tracking-[0.15em] uppercase text-jusa-orange mb-4">Naval, Biliran</span>
                 <h1 class="font-display font-black text-5xl sm:text-6xl lg:text-7xl text-white leading-[0.92] tracking-tight mb-8">
                     Born from the<br>
@@ -33,7 +33,7 @@
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center">
 
                 {{-- Image block --}}
-                <div class="relative">
+                <div class="relative" data-scroll-reveal="fade-left" data-scroll-reveal-delay="60">
                     <img
                         src="{{ asset('images/about-founding-storefront.png') }}"
                         alt="Jusa's Tropical Smoothie Café storefront in Naval, Biliran"
@@ -50,7 +50,7 @@
                 </div>
 
                 {{-- Story Text --}}
-                <div class="lg:pr-8">
+                <div class="lg:pr-8" data-scroll-reveal="fade-up" data-scroll-reveal-delay="80">
                     <span class="section-label">Our Founding Story</span>
                     <h2 class="section-title mb-8">From a market<br>stall to a movement.</h2>
 
@@ -93,7 +93,7 @@
     <section class="py-24 bg-jusa-surface-low relative overflow-hidden">
         <div class="absolute top-0 right-0 w-96 h-96 bg-jusa-red-container/15 rounded-full blur-3xl translate-x-1/2 -translate-y-1/3"></div>
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-            <div class="text-center mb-14">
+            <div class="text-center mb-14" data-scroll-reveal="fade-up">
                 <span class="section-label">Why We Exist</span>
                 <h2 class="section-title">Mission & Values</h2>
                 <p class="section-subtitle mt-5 mx-auto">
@@ -114,7 +114,11 @@
                             default => 'M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z',
                         };
                     @endphp
-                    <div class="bg-white rounded-3xl p-7 shadow-card hover:shadow-card-hover hover:-translate-y-1 transition-all duration-300 group">
+                    <div
+                        class="bg-white rounded-3xl p-7 shadow-card hover:shadow-card-hover hover:-translate-y-1 transition-all duration-300 group"
+                        data-scroll-reveal="fade-up"
+                        data-scroll-reveal-delay="{{ 40 + $loop->index * 55 }}"
+                    >
                         <div class="w-12 h-12 bg-jusa-green-container/50 rounded-2xl flex items-center justify-center mb-5 group-hover:bg-jusa-green group-hover:scale-110 transition-all duration-300">
                             <svg class="w-6 h-6 text-jusa-green group-hover:text-white transition-colors duration-300" viewBox="0 0 24 24" fill="currentColor">
                                 <path d="{{ $iconPath }}"/>
@@ -131,14 +135,14 @@
     {{-- ==================== TEAM SPOTLIGHT ==================== --}}
     <section class="py-24 bg-jusa-cream">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-14">
+            <div class="text-center mb-14" data-scroll-reveal="fade-up">
                 <span class="section-label">Team Spotlight</span>
                 <h2 class="section-title">The Founders Behind Jusa's</h2>
             </div>
 
             <div class="max-w-2xl mx-auto">
                 @foreach ($team as $member)
-                    <div class="group text-center">
+                    <div class="group text-center" data-scroll-reveal="zoom" data-scroll-reveal-delay="80">
                         <div class="relative inline-block mb-6">
                             <div class="mx-auto h-52 w-52 overflow-hidden rounded-full bg-jusa-cream ring-2 ring-jusa-green-container/60 transition-all duration-300 group-hover:ring-jusa-green sm:h-56 sm:w-56">
                                 <img
@@ -162,7 +166,7 @@
     {{-- ==================== CTA ==================== --}}
     <section class="py-20 tropical-gradient text-center overflow-hidden relative">
         <div class="absolute inset-0 bg-pattern-leaf opacity-30"></div>
-        <div class="relative z-10 max-w-2xl mx-auto px-4">
+        <div class="relative z-10 max-w-2xl mx-auto px-4" data-scroll-reveal="fade-up">
             <h2 class="font-display font-bold text-3xl sm:text-4xl text-white mb-5">Come experience the <span class="text-gradient-green">JUSA glow</span> yourself.</h2>
             <p class="text-white/70 mb-10">One home in Naval. One mission: your best self, one sip at a time.</p>
             <div class="flex flex-wrap gap-4 justify-center">

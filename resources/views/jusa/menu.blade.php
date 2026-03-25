@@ -8,7 +8,7 @@
     <section class="relative overflow-hidden bg-jusa-surface-low py-14 sm:py-16">
         <div class="absolute top-0 right-0 h-96 w-96 translate-x-1/2 -translate-y-1/2 rounded-full bg-jusa-green-container/20 blur-3xl"></div>
         <div class="absolute bottom-0 left-0 h-64 w-64 -translate-x-1/4 translate-y-1/4 rounded-full bg-jusa-orange-container/20 blur-3xl"></div>
-        <div class="relative z-10 mx-auto max-w-7xl px-4 text-center sm:px-6 lg:px-8">
+        <div class="relative z-10 mx-auto max-w-7xl px-4 text-center sm:px-6 lg:px-8" data-scroll-reveal="fade-up">
             <span class="section-label">Our menu</span>
             <h1 class="section-title mt-2 mb-4">The full menu</h1>
             <p class="section-subtitle mx-auto max-w-2xl">
@@ -46,6 +46,8 @@
                     id="{{ $board['id'] }}"
                     class="scroll-mt-[5.5rem] sm:scroll-mt-24"
                     aria-labelledby="heading-{{ $board['id'] }}"
+                    data-scroll-reveal="fade-up"
+                    data-scroll-reveal-delay="{{ min(30 + $loop->index * 40, 200) }}"
                 >
                     <h2 id="heading-{{ $board['id'] }}" class="sr-only">{{ $board['title'] }}</h2>
                     <figure

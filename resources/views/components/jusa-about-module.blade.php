@@ -34,7 +34,10 @@
 
     <div class="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         {{-- Tier 1: Section identity (clear hierarchy) --}}
-        <div class="mx-auto mb-12 max-w-3xl text-center lg:mb-16 lg:max-w-4xl">
+        <div
+            class="mx-auto mb-12 max-w-3xl text-center lg:mb-16 lg:max-w-4xl"
+            data-scroll-reveal="fade-up"
+        >
             <span class="section-label">{{ $eyebrow }}</span>
             <h2
                 id="about-module-heading"
@@ -57,7 +60,11 @@
         {{-- Tier 2: Split story + media --}}
         <div class="grid grid-cols-1 items-start gap-12 lg:grid-cols-12 lg:gap-10 xl:gap-14">
             {{-- Media column --}}
-            <div class="relative lg:col-span-5 xl:col-span-5">
+            <div
+                class="relative lg:col-span-5 xl:col-span-5"
+                data-scroll-reveal="fade-left"
+                data-scroll-reveal-delay="60"
+            >
                 <div class="relative mx-auto w-full max-w-2xl sm:max-w-none lg:mx-0">
                     <div
                         class="absolute -inset-3 -z-10 rounded-2xl bg-gradient-to-br from-jusa-red/10 via-transparent to-jusa-orange/15 blur-sm sm:rounded-3xl"
@@ -82,7 +89,11 @@
             </div>
 
             {{-- Content column --}}
-            <div class="lg:col-span-7 xl:col-span-7">
+            <div
+                class="lg:col-span-7 xl:col-span-7"
+                data-scroll-reveal="fade-up"
+                data-scroll-reveal-delay="80"
+            >
                 <div class="space-y-6 border-l-4 border-jusa-red/85 pl-5 sm:pl-6 lg:border-l-[5px] lg:pl-8">
                     @foreach ($paragraphs as $p)
                         <p class="text-base leading-relaxed text-jusa-text sm:text-[17px]">{{ $p }}</p>
@@ -92,7 +103,11 @@
                 @if (count($pillars) > 0)
                     <ul class="mt-10 grid grid-cols-1 gap-4 sm:grid-cols-3 sm:gap-3 lg:mt-12 lg:gap-4" role="list">
                         @foreach ($pillars as $pillar)
-                            <li class="group flex flex-col rounded-2xl border border-jusa-surface-dim/70 bg-white/90 p-5 shadow-card transition duration-300 hover:-translate-y-0.5 hover:border-jusa-green/30 hover:shadow-card-hover">
+                            <li
+                                class="group flex flex-col rounded-2xl border border-jusa-surface-dim/70 bg-white/90 p-5 shadow-card transition duration-300 hover:-translate-y-0.5 hover:border-jusa-green/30 hover:shadow-card-hover"
+                                data-scroll-reveal="fade-up"
+                                data-scroll-reveal-delay="{{ 40 + $loop->index * 70 }}"
+                            >
                                 <span
                                     class="mb-3 inline-flex h-11 w-11 items-center justify-center rounded-xl bg-jusa-green-container/60 text-jusa-green transition group-hover:bg-jusa-green group-hover:text-white"
                                     aria-hidden="true"
@@ -112,6 +127,8 @@
                     <div
                         class="mt-10 grid grid-cols-1 gap-3 rounded-3xl border border-jusa-surface-dim/80 bg-white p-5 shadow-card sm:grid-cols-3 sm:gap-0 sm:divide-x sm:divide-jusa-surface-dim/60 sm:p-6 lg:mt-12"
                         role="list"
+                        data-scroll-reveal="zoom"
+                        data-scroll-reveal-delay="100"
                     >
                         @foreach ($stats as $stat)
                             @php
@@ -131,7 +148,11 @@
                     </div>
                 @endif
 
-                <div class="mt-10 flex flex-col gap-3 sm:mt-12 sm:flex-row sm:flex-wrap sm:items-center sm:gap-4">
+                <div
+                    class="mt-10 flex flex-col gap-3 sm:mt-12 sm:flex-row sm:flex-wrap sm:items-center sm:gap-4"
+                    data-scroll-reveal="fade-up"
+                    data-scroll-reveal-delay="120"
+                >
                     <a href="{{ route('about') }}" class="btn-primary inline-flex items-center justify-center gap-2 px-8 py-3.5 text-base">
                         Our full story
                         <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">

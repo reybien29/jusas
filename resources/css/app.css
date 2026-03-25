@@ -337,3 +337,55 @@
         filter: none;
     }
 }
+
+/* -------------------------------------------------------------------------- */
+/* Scroll-driven section reveals (Intersection Observer → .scroll-reveal-visible) */
+/* -------------------------------------------------------------------------- */
+
+@layer utilities {
+    [data-scroll-reveal] {
+        --sr-delay: 0ms;
+        opacity: 0;
+        transform: translate3d(0, 1.5rem, 0);
+        transition:
+            opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1) var(--sr-delay),
+            transform 0.7s cubic-bezier(0.22, 1, 0.36, 1) var(--sr-delay);
+        will-change: opacity, transform;
+    }
+
+    [data-scroll-reveal='fade'],
+    [data-scroll-reveal='fade-in'] {
+        transform: none;
+    }
+
+    [data-scroll-reveal='fade-left'] {
+        transform: translate3d(-1.25rem, 0, 0);
+    }
+
+    [data-scroll-reveal='fade-right'] {
+        transform: translate3d(1.25rem, 0, 0);
+    }
+
+    [data-scroll-reveal='zoom'] {
+        transform: scale(0.96);
+    }
+
+    [data-scroll-reveal].scroll-reveal-visible {
+        opacity: 1;
+        transform: translate3d(0, 0, 0) scale(1);
+    }
+
+    [data-scroll-reveal='fade'].scroll-reveal-visible,
+    [data-scroll-reveal='fade-in'].scroll-reveal-visible {
+        transform: none;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+        [data-scroll-reveal] {
+            opacity: 1;
+            transform: none;
+            transition: none;
+            will-change: auto;
+        }
+    }
+}

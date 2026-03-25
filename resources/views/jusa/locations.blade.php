@@ -7,13 +7,13 @@
         <div class="absolute top-0 right-0 w-96 h-96 bg-jusa-red-container/15 rounded-full blur-3xl translate-x-1/2 -translate-y-1/2"></div>
         <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
-                <div>
+                <div data-scroll-reveal="fade-up">
                     <span class="section-label">Find Us</span>
                     <h1 class="section-title mt-1">Our Location</h1>
                     <p class="text-jusa-text-muted mt-3">Find us on P. Inocentes Street in Naval — tropical blends, comfort food, and a warm welcome.</p>
                 </div>
                 {{-- Brand mark (circular crop, responsive) --}}
-                <div class="hidden sm:flex items-center justify-center flex-shrink-0">
+                <div class="hidden sm:flex items-center justify-center flex-shrink-0" data-scroll-reveal="zoom" data-scroll-reveal-delay="120">
                     <span class="relative flex overflow-hidden rounded-full bg-white shadow-md ring-1 ring-jusa-surface-dim/40 aspect-square w-[4.5rem] h-[4.5rem] sm:w-20 sm:h-20 md:w-24 md:h-24">
                         <img
                             src="{{ asset('images/jusa-logo.png') }}"
@@ -33,7 +33,11 @@
     <section class="py-16 bg-jusa-cream">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
             @foreach ($locations as $location)
-                <div class="bg-white rounded-5xl shadow-card overflow-hidden {{ $location['is_flagship'] ? 'ring-2 ring-jusa-red/20' : '' }}">
+                <div
+                    class="bg-white rounded-5xl shadow-card overflow-hidden {{ $location['is_flagship'] ? 'ring-2 ring-jusa-red/20' : '' }}"
+                    data-scroll-reveal="fade-up"
+                    data-scroll-reveal-delay="{{ min(40 + $loop->index * 80, 240) }}"
+                >
                     {{-- Flagship badge --}}
                     @if ($location['is_flagship'])
                         <div class="bg-jusa-red px-6 py-2 flex items-center gap-2">

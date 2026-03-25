@@ -11,7 +11,11 @@
             <div class="grid w-full grid-cols-1 items-center gap-12 lg:grid-cols-2 lg:gap-16 xl:gap-20">
                 {{-- Left: copy & CTAs --}}
                 <div class="order-2 max-w-xl lg:order-1">
-                    <div class="mb-6 inline-flex items-center rounded-full bg-jusa-red px-4 py-2 text-[11px] font-bold uppercase tracking-[0.2em] text-white shadow-sm sm:mb-8 sm:text-xs">
+                    <div
+                        class="mb-6 inline-flex items-center rounded-full bg-jusa-red px-4 py-2 text-[11px] font-bold uppercase tracking-[0.2em] text-white shadow-sm sm:mb-8 sm:text-xs"
+                        data-scroll-reveal="fade-up"
+                        data-scroll-reveal-delay="40"
+                    >
                          Refreshment
                     </div>
 
@@ -21,11 +25,19 @@
                         <span class="hero-brand-line hero-brand-line-three">Café</span>
                     </h1>
 
-                    <p class="mb-10 max-w-xl font-manrope text-base leading-relaxed text-jusa-text sm:text-lg">
+                    <p
+                        class="mb-10 max-w-xl font-manrope text-base leading-relaxed text-jusa-text sm:text-lg"
+                        data-scroll-reveal="fade-up"
+                        data-scroll-reveal-delay="120"
+                    >
                         Step into Naval's freshest flavor stop for bold fruit blends, vibrant comfort food, and feel-good favorites that make you want to visit now, not later. 
                     </p>
 
-                    <div class="flex flex-wrap items-center gap-5 sm:gap-8">
+                    <div
+                        class="flex flex-wrap items-center gap-5 sm:gap-8"
+                        data-scroll-reveal="fade-up"
+                        data-scroll-reveal-delay="200"
+                    >
                         <a
                             href="{{ route('menu') }}"
                             class="inline-flex items-center justify-center rounded-full bg-jusa-red px-8 py-4 text-base font-semibold text-white shadow-lg transition-all duration-300 hover:-translate-y-0.5 hover:bg-jusa-red-dark hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-jusa-red focus:ring-offset-2"
@@ -47,7 +59,11 @@
                 </div>
 
                 {{-- Right: layered image + seasonal card --}}
-                <div class="order-1 w-full lg:order-2 lg:justify-self-end">
+                <div
+                    class="order-1 w-full lg:order-2 lg:justify-self-end"
+                    data-scroll-reveal="fade-right"
+                    data-scroll-reveal-delay="100"
+                >
                     <div class="relative mx-auto w-full max-w-[min(100%,420px)] lg:max-w-[480px] xl:max-w-[520px]">
                         {{-- Offset “stacked card” wash --}}
                         <div
@@ -182,7 +198,7 @@
     <section class="py-24 bg-jusa-text overflow-hidden">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             {{-- Section Header --}}
-            <div class="text-center mb-14">
+            <div class="text-center mb-14" data-scroll-reveal="fade-up">
                 <span class="inline-block text-xs font-bold tracking-[0.15em] uppercase text-jusa-orange mb-3">Community</span>
                 <h2 class="font-display font-bold text-3xl sm:text-4xl text-white">The JUSA Community</h2>
                 <p class="text-white/60 mt-3">Voices from our polished paradise.</p>
@@ -191,7 +207,11 @@
             {{-- Testimonial Cards --}}
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
                 @foreach ($testimonials as $testimonial)
-                    <div class="bg-white/8 backdrop-blur-sm border border-white/10 rounded-3xl p-6 hover:bg-white/12 hover:-translate-y-1 transition-all duration-300">
+                    <div
+                        class="bg-white/8 backdrop-blur-sm border border-white/10 rounded-3xl p-6 hover:bg-white/12 hover:-translate-y-1 transition-all duration-300"
+                        data-scroll-reveal="fade-up"
+                        data-scroll-reveal-delay="{{ 60 + $loop->index * 70 }}"
+                    >
                         {{-- Stars --}}
                         <div class="flex gap-1 mb-4">
                             @for ($i = 0; $i < $testimonial['rating']; $i++)
@@ -225,7 +245,7 @@
     {{-- ==================== CTA STRIP ==================== --}}
     <section class="py-20 bg-jusa-surface-base relative overflow-hidden">
         <div class="absolute inset-0 bg-pattern-leaf"></div>
-        <div class="relative z-10 max-w-3xl mx-auto px-4 text-center">
+        <div class="relative z-10 max-w-3xl mx-auto px-4 text-center" data-scroll-reveal="fade-up">
             <h2 class="section-title mb-5">Ready to find your<br><span class="text-jusa-green">perfect blend?</span></h2>
             <p class="section-subtitle mx-auto mb-10">
                 Visit us in Naval or explore our full menu of tropical creations online.

@@ -18,7 +18,7 @@
     <div class="pointer-events-none absolute bottom-0 right-0 h-72 w-72 translate-x-1/4 translate-y-1/4 rounded-full bg-jusa-red-container/15 blur-3xl"></div>
 
     <div class="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div class="mx-auto mb-10 max-w-3xl text-center lg:mb-12">
+        <div class="mx-auto mb-10 max-w-3xl text-center lg:mb-12" data-scroll-reveal="fade-up">
             <span class="section-label">{{ $eyebrow }}</span>
             <h2
                 id="gallery-heading"
@@ -37,6 +37,8 @@
             @foreach ($items as $item)
                 <figure
                     class="group relative aspect-square overflow-hidden rounded-xl bg-jusa-surface-dim/40 shadow-card ring-1 ring-jusa-text/[0.06] transition duration-500 hover:shadow-card-hover hover:ring-jusa-red/20 sm:rounded-2xl"
+                    data-scroll-reveal="zoom"
+                    data-scroll-reveal-delay="{{ min(40 + $loop->index * 45, 320) }}"
                 >
                     <img
                         src="{{ $item['src'] }}"
@@ -56,7 +58,7 @@
             @endforeach
         </div>
 
-        <div class="mt-10 text-center sm:mt-12">
+        <div class="mt-10 text-center sm:mt-12" data-scroll-reveal="fade-up" data-scroll-reveal-delay="60">
             <a
                 href="{{ route('about') }}"
                 class="inline-flex items-center gap-2 rounded-full border-2 border-jusa-text/10 bg-white px-6 py-3 text-sm font-semibold text-jusa-red shadow-sm transition hover:border-jusa-red/30 hover:bg-jusa-red-container/30"

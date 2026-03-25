@@ -37,7 +37,7 @@
 
     <div class="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         {{-- Tier 1: Section identity --}}
-        <div class="mx-auto mb-12 max-w-3xl text-center lg:mb-14">
+        <div class="mx-auto mb-12 max-w-3xl text-center lg:mb-14" data-scroll-reveal="fade-up">
             <span class="section-label">{{ $eyebrow }}</span>
             <h2
                 id="amenities-heading"
@@ -64,6 +64,8 @@
                     @foreach ($items as $item)
                         <li
                             class="group flex gap-4 rounded-2xl border border-jusa-surface-dim/80 bg-white/90 p-5 shadow-card transition duration-300 hover:-translate-y-0.5 hover:border-jusa-red/25 hover:shadow-card-hover sm:p-6"
+                            data-scroll-reveal="fade-up"
+                            data-scroll-reveal-delay="{{ 50 + $loop->index * 55 }}"
                         >
                             <span
                                 class="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-jusa-red-container/50 text-jusa-red transition group-hover:bg-jusa-red group-hover:text-white"
@@ -82,7 +84,11 @@
                     @endforeach
                 </ul>
 
-                <div class="mt-10 flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-center sm:gap-4">
+                <div
+                    class="mt-10 flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-center sm:gap-4"
+                    data-scroll-reveal="fade-up"
+                    data-scroll-reveal-delay="80"
+                >
                     <a href="{{ route('locations') }}" class="btn-primary inline-flex items-center justify-center gap-2 px-7 py-3.5 text-base">
                         Hours & directions
                         <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
@@ -99,7 +105,11 @@
             </div>
 
             {{-- Visual column --}}
-            <div class="order-1 lg:order-2 lg:col-span-5">
+            <div
+                class="order-1 lg:order-2 lg:col-span-5"
+                data-scroll-reveal="fade-right"
+                data-scroll-reveal-delay="80"
+            >
                 @if ($image)
                     <div @class([
                         'relative mx-auto max-w-md lg:mx-0 lg:max-w-none',

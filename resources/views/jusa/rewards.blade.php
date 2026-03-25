@@ -13,7 +13,7 @@
 
         <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-                <div>
+                <div data-scroll-reveal="fade-up">
                     <span class="inline-block text-xs font-bold tracking-[0.15em] uppercase text-jusa-orange mb-4">Earn with Every Sip</span>
                     <h1 class="font-display font-black text-5xl sm:text-6xl text-white leading-[0.92] tracking-tight mb-6">
                         Oasis<br>
@@ -28,7 +28,7 @@
                     </div>
                 </div>
                 {{-- Points preview card --}}
-                <div class="hidden lg:block">
+                <div class="hidden lg:block" data-scroll-reveal="fade-right" data-scroll-reveal-delay="100">
                     <div class="bg-white/10 backdrop-blur-sm border border-white/20 rounded-5xl p-8 text-white">
                         <div class="flex items-center justify-between mb-6">
                             <span class="text-sm font-semibold text-white/70">Your Points</span>
@@ -56,7 +56,7 @@
     {{-- ==================== LOYALTY CARD REWARD ==================== --}}
     <section class="border-b border-jusa-surface-dim/60 bg-white py-16">
         <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            <div class="mx-auto max-w-3xl text-center">
+            <div class="mx-auto max-w-3xl text-center" data-scroll-reveal="fade-up">
                 <span class="section-label">Loyalty Card</span>
                 <h2 class="section-title mt-2">Stamp &amp; save</h2>
                 <p class="section-subtitle mx-auto mt-4">
@@ -64,14 +64,14 @@
                 </p>
             </div>
             <div class="mx-auto mt-12 grid max-w-4xl grid-cols-1 gap-6 sm:grid-cols-2">
-                <div class="rounded-3xl border-2 border-jusa-green/25 bg-jusa-green-container/20 p-8 text-center shadow-card">
+                <div class="rounded-3xl border-2 border-jusa-green/25 bg-jusa-green-container/20 p-8 text-center shadow-card" data-scroll-reveal="fade-up" data-scroll-reveal-delay="60">
                     <div class="font-display text-5xl font-black text-jusa-green">6</div>
                     <h3 class="font-display mt-3 text-xl font-bold text-jusa-text">Every 6 you buy</h3>
                     <p class="mt-2 text-sm leading-relaxed text-jusa-text-muted">
                         <span class="font-semibold text-jusa-text">50% off</span> your next qualifying purchase when you complete six stamps on your Loyalty Card.
                     </p>
                 </div>
-                <div class="rounded-3xl border-2 border-jusa-orange/30 bg-jusa-orange-container/25 p-8 text-center shadow-card">
+                <div class="rounded-3xl border-2 border-jusa-orange/30 bg-jusa-orange-container/25 p-8 text-center shadow-card" data-scroll-reveal="fade-up" data-scroll-reveal-delay="140">
                     <div class="font-display text-5xl font-black text-jusa-orange">12</div>
                     <h3 class="font-display mt-3 text-xl font-bold text-jusa-text">Collect 12 stamps</h3>
                     <p class="mt-2 text-sm leading-relaxed text-jusa-text-muted">
@@ -85,7 +85,7 @@
     {{-- ==================== HOW IT WORKS ==================== --}}
     <section id="how-it-works" class="py-20 bg-jusa-surface-low">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-14">
+            <div class="text-center mb-14" data-scroll-reveal="fade-up">
                 <span class="section-label">Simple & Rewarding</span>
                 <h2 class="section-title">How It Works</h2>
             </div>
@@ -95,7 +95,11 @@
                     ['step' => '2', 'icon' => 'earn', 'title' => 'Earn Points', 'desc' => 'Get 1 point per $1 spent in-café or online. Double points on weekends.'],
                     ['step' => '3', 'icon' => 'redeem', 'title' => 'Redeem Rewards', 'desc' => 'Swap points for free drinks, add-ons, exclusive merch, and tier perks.'],
                 ] as $step)
-                    <div class="relative text-center p-8 bg-white rounded-3xl shadow-card">
+                    <div
+                        class="relative text-center p-8 bg-white rounded-3xl shadow-card"
+                        data-scroll-reveal="fade-up"
+                        data-scroll-reveal-delay="{{ 50 + $loop->index * 70 }}"
+                    >
                         <div class="w-12 h-12 bg-jusa-red text-white rounded-2xl flex items-center justify-center font-display font-black text-xl mx-auto mb-5 shadow-jusa">
                             {{ $step['step'] }}
                         </div>
@@ -117,7 +121,7 @@
     {{-- ==================== TIER SYSTEM ==================== --}}
     <section class="py-20 bg-jusa-cream">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-14">
+            <div class="text-center mb-14" data-scroll-reveal="fade-up">
                 <span class="section-label">Loyalty Card</span>
                 <h2 class="section-title">Rewards Tiers</h2>
                 <p class="section-subtitle mt-5 mx-auto">
@@ -136,7 +140,11 @@
                         ];
                         $tc = $tierColors[$tier['color']] ?? $tierColors['surface-high'];
                     @endphp
-                    <div class="rounded-3xl border-2 {{ $tc['border'] }} {{ $tc['bg'] }} p-6 flex flex-col">
+                    <div
+                        class="rounded-3xl border-2 {{ $tc['border'] }} {{ $tc['bg'] }} p-6 flex flex-col"
+                        data-scroll-reveal="zoom"
+                        data-scroll-reveal-delay="{{ min(40 + $loop->index * 55, 280) }}"
+                    >
                         <div class="text-3xl mb-3">{{ $tier['icon'] }}</div>
                         <div class="flex items-center justify-between mb-1">
                             <h3 class="font-display font-bold text-xl text-jusa-text">{{ $tier['name'] }}</h3>
@@ -176,7 +184,7 @@
 
     {{-- ==================== CTA ==================== --}}
     <section class="py-16 tropical-gradient text-center overflow-hidden relative">
-        <div class="relative z-10 max-w-xl mx-auto px-4">
+        <div class="relative z-10 max-w-xl mx-auto px-4" data-scroll-reveal="fade-up">
             <h2 class="font-display font-bold text-3xl text-white mb-4">Ready to join the Oasis?</h2>
             <p class="text-white/70 mb-8">Sign up free and start earning from your very first sip.</p>
             <a href="{{ route('contact') }}" class="btn-white text-base px-8 py-4">Ask About Rewards</a>

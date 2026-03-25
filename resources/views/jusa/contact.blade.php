@@ -5,7 +5,7 @@
     {{-- Page Hero --}}
     <section class="py-16 bg-jusa-surface-low relative overflow-hidden">
         <div class="absolute top-0 right-0 w-80 h-80 bg-jusa-green-container/15 rounded-full blur-3xl translate-x-1/2 -translate-y-1/2"></div>
-        <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" data-scroll-reveal="fade-up">
             <span class="section-label">We'd Love to Hear From You</span>
             <h1 class="section-title mt-1">Get in Touch</h1>
             <p class="text-jusa-text-muted mt-3 max-w-xl">Questions, feedback, catering inquiries, or just want to say hi — our team responds within 24 hours.</p>
@@ -17,7 +17,7 @@
             <div class="grid grid-cols-1 lg:grid-cols-5 gap-12 lg:gap-16">
 
                 {{-- ====== LEFT: Contact Form ====== --}}
-                <div class="lg:col-span-3">
+                <div class="lg:col-span-3" data-scroll-reveal="fade-up" data-scroll-reveal-delay="40">
                     {{-- Success message --}}
                     @if (session('success'))
                         <div class="bg-jusa-green-container/40 border border-jusa-green/30 rounded-3xl p-6 mb-8 flex items-start gap-4">
@@ -117,7 +117,7 @@
                 </div>
 
                 {{-- ====== RIGHT: Info + Social + Hours ====== --}}
-                <div class="lg:col-span-2 space-y-6">
+                <div class="lg:col-span-2 space-y-6" data-scroll-reveal="fade-up" data-scroll-reveal-delay="120">
 
                     {{-- Quick Contact Cards --}}
                     <div class="space-y-4">
@@ -206,7 +206,7 @@
     {{-- ==================== FAQ ACCORDION ==================== --}}
     <section class="py-20 bg-jusa-surface-low" x-data="{ openFaq: null }">
         <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-12">
+            <div class="text-center mb-12" data-scroll-reveal="fade-up">
                 <span class="section-label">Quick Answers</span>
                 <h2 class="section-title">Frequently Asked</h2>
             </div>
