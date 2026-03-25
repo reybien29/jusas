@@ -1,4 +1,4 @@
-FROM php:8.3-fpm-alpine AS builder
+FROM php:8.4-fpm-alpine AS builder
 
 RUN apk add --no-cache \
     libpq-dev \
@@ -26,7 +26,7 @@ COPY . .
 RUN npm run build \
     && composer dump-autoload --optimize
 
-FROM php:8.3-fpm-alpine
+FROM php:8.4-fpm-alpine
 
 RUN apk add --no-cache \
     nginx \
