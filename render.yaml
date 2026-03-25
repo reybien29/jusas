@@ -24,6 +24,7 @@ services:
         value: production
       - key: APP_DEBUG
         value: "false"
+      # Must be the public https URL (e.g. https://jusas.onrender.com) so asset() / @vite use HTTPS behind the proxy
       - key: APP_URL
         sync: false
       - key: APP_KEY
